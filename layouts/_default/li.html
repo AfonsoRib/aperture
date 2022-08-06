@@ -1,0 +1,7 @@
+<li>
+  <a href="{{ .Permalink }}">
+    {{ first 50 .Title }}
+    {{if gt (len .Title) 50}}...{{end}}
+      <small><time>{{ .Date.Format "Jan 2, 2006" }}</time></small>
+  </a>
+</li>

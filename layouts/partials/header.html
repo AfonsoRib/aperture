@@ -1,0 +1,28 @@
+<aside id="header">
+    <nav>
+	<h1 id="title"><a href="{{ .Site.BaseURL }}" >{{ .Site.Title }}</a></h1>
+	<ul>
+	    {{ range .Site.Menus.main.ByWeight -}}
+
+	    {{ if .HasChildren }}
+	    <h3>{{ .Name }} </h3>
+		{{range .Children }}
+		{{ .Pre }}<a href="{{ .URL }}" title="{{ .Title }}"> {{- .Name -}}</a>{{ .Post }}
+		{{ end }}
+		{{else}}
+		
+	    <li>
+		{{ .Pre }}<a href="{{ .URL }}" title="{{ .Title }}">{{- .Name -}}</a>{{ .Post }}
+            </li> 
+	    {{- end -}}
+	    {{ end }}
+	    <h3> Collections </h3>
+	    {{ range where .Site.RegularPages "Section" "collections" }}
+	    	    <li>
+			<a href="{{ .RelPermalink  }}" title="{{ .Title }}">{{- .Name -}}</a>
+		    </li>
+		    {{end}}
+	    
+	</ul>
+    </nav>
+</aside>

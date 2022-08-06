@@ -1,0 +1,171 @@
+@font-face {
+    font-family: 'armata';
+    src: url('/fonts/armata-v19-latin-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    margin: 0;
+    font-size: 1em;
+    font-family: armata;
+}
+
+/* carousel css  */
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top:0;
+  width: 20%;
+  height: 100%;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  cursor:w-resize;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  cursor:e-resize;
+}
+
+button.prev, button.next {
+    background-color: rgba(0,0,0,0.0);
+    border: none;
+    padding: 0;
+}
+
+.slide-img {
+    height: 100%;
+    width: 100%;
+    /* background-repeat: no-repeat; */
+    /* background-size: contain; */
+    /* background-position: center; */
+    object-fit: contain;
+}
+
+/* .caption { */
+/*    transform: translateY(-100%); */
+/*    top: 100%; */
+/*    position: relative; */
+/*    text-align: center; */
+/*    padding: 1em; */
+/*    background-color: rgba(0,0,0,0.8); */
+/*    color: white; */
+/*    width: 50%; */
+/*    margin: auto; */
+/* } */
+
+/* header */
+
+aside#header {
+    background-color: #f5f5f5;
+}
+
+aside#header nav {
+    padding: 2em;
+    color: #000000
+}
+
+aside#header nav h1,
+aside#header nav h2,
+aside#header nav h3,
+aside#header nav h4,
+aside#header nav h5,
+aside#header nav h6{
+    margin-bottom: 0.25em;
+}
+
+aside#header nav h1#title {
+    margin-top: 0;
+    font-size: 1.5em
+}
+
+aside#header nav ul {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+aside#header nav ul li {
+    display: inline;
+    margin: 0 3px;
+}
+
+aside#header a { 
+    color: black;
+    text-decoration: none;
+}
+
+aside#header a:hover {
+    text-decoration: underline;
+}
+
+/* main */
+
+main#content{
+    height:100%;
+    width: 100%;
+    position:absolute;
+}
+
+main#content h1,
+main#content h2,
+main#content h3,
+main#content h4,
+main#content h5,
+main#content h6 {
+    margin-bottom: 0;
+}
+main#content h1 + p,
+main#content h2 + p,
+main#content h3 + p,
+main#content h4 + p,
+main#content h5 + p,
+main#content h6 + p {
+    margin-top: 5px;
+}
+
+main#content article a {
+    color: #007dfa;
+    text-decoration: none;
+}
+
+main#content article a:hover {
+    text-decoration: underline;
+}
+
+main#content article{
+    padding: 0 2em;
+}
+
+main#content ul#posts {
+    list-style-type: none;
+    margin-top: 0;
+    padding: 0;
+    font-size: 1.15em;
+}
+
+main#content ul#posts li {
+    margin: 5px 0;
+    padding: 0;
+}
+
+main#content ul#posts li a {
+    text-decoration: none;
+}
+
+main#content ul#posts small {
+    font-size: 0.8em;
+    color: #767676;
+    margin-left: 10px;
+}
+
+

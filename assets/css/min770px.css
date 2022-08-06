@@ -1,0 +1,38 @@
+@media (min-width: 770px) {
+
+
+    /* carousel */
+    .slideshow-container {
+	width: calc(4/5*100%);
+	position: fixed;
+	height: 100%;
+	top: 0;
+	left: calc(1/5*100%);
+    }
+
+
+
+    /* header */
+    aside#header {
+	height: 100%;
+	width: calc(100% / 5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
+    }
+
+    aside#header nav ul li {
+	display: block;
+	/* margin: 0 10px; */
+    }
+
+    /* main  */
+    main#content{
+	left: calc(100%/5);
+	position: absolute;
+	width: 80%
+    }
+
+
+}
