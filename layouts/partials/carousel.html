@@ -17,21 +17,36 @@
 <div class="glide" style="height: 100%;">
     <div class="glide__track" data-glide-el="track" style="height: 100%;">
 	<ul class="glide__slides" style="height: 100%;">
+	    {{ range .Pages }}
+	    {{ $caption := .Content }}
 	    {{ $images := .Page.Resources.ByType "image" }}
 	    {{ range $index, $value := $images }}
 	    <li class="glide__slide">
-		<img class="slide-img" src="{{ $value.RelPermalink }}"> </img> </li>
-	    
+
+		<figure style="width: fit-content;
+			       height: 100%;
+			       margin: auto;">
+		    <img class="slide-img" {{ if eq $caption "" }} style ="height: 100%"{{end}} src="{{ $value.RelPermalink }}">
+		    <figcaption style="height: 10%;
+				       justify-content: center;
+				       display: flex;
+				       align-items: center;">{{ $caption }}</figcaption>
+		</figure>
+
+	    </li>
+	    {{end}}
 	    {{ end }}
 	</ul>
     </div>
     <div class="glide__arrows" data-glide-el="controls">
 	<button class="prev glide__arrow glide__arrow--left" data-glide-dir="<"></button>
-	    <button class="next glide__arrow glide__arrow--right" data-glide-dir=">"></button>
+	<button class="next glide__arrow glide__arrow--right" data-glide-dir=">"></button>
     </div>
 </div>
-
 <script src="/js/glide.min.js"></script>
 <script>
- new Glide('.glide', { gap: 0 }).mount()
+ new Glide('.glide', { gap: 0, type: 'carousel' }).mount()
 </script>
+
+<!-- <div style="position: absolute;top: 0;padding: 0.5em 1em;right: 0; margin: 12px;background: rgba(0, 0, 0, 0.9);color: white;border-radius: 12px;">1/44</div> -->
+<!-- <div style="position: absolute;top: 0;background: #dddddd;margin: 12px    ;border-radius: 50%;border-color: transparent;padding: 0.5em 1em;background-color: rgba(0, 0, 0, 0.9);color: white;">i</div> -->
