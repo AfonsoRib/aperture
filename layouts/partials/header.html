@@ -1,18 +1,22 @@
 <aside id="header">
     <nav>
-	<h1 id="title"><a href="{{ "/" | absLangURL }}" >{{ .Site.Title }}</a></h1>
+	{{ $siteLangUrl := "/" | absLangURL }}
+	<h1 id="title"><a href="{{ $siteLangUrl }}" >{{ .Site.Title }}</a></h1>
 	<ul>
 	    {{ range .Site.Menus.main.ByWeight -}}
 
 	    {{ if .HasChildren }}
 	    <h3>{{ .Name }} </h3>
+	    <ul>
 		{{range .Children }}
-		{{ .Pre }}<a href="{{ .URL }}" title="{{ .Title }}"> {{- .Name -}}</a>{{ .Post }}
+		<li>{{ .Pre }}<a href="{{ .URL }}" title="{{ .Title }}"> {{- .Name -}}</a>{{ .Post }}</li>
 		{{ end }}
-		{{else}}
+	    </ul>
+	    {{else}}
+
 		
 	    <li>
-		{{ .Pre }}<a href="{{ .URL }}" title="{{ .Title }}">{{- .Name -}}</a>{{ .Post }}
+		{{ .Pre }}<a href="{{$siteLangUrl}}{{ .URL }}" title="{{ .Title }}">{{- .Name -}}</a>{{ .Post }}
             </li> 
 	    {{- end -}}
 	    {{ end }}
@@ -25,11 +29,13 @@
 		    {{end}}
 		    {{end}}
 	</ul>
+	<h3 id="lngHeader">Languages</h3>
+	<ul id="lng">
+	    {{ range  .Site.Languages }}
+	    <li style="display:inline;"><a href="/{{ . }}">{{  .}}</a></li>
+	    {{ end }}
     </nav>
-    <ul style="position:fixed;bottom:0;">
-	{{ range  .Site.Languages }}
-	<li style="display:inline;"><a href="/{{ . }}">{{  .}}</a></li>
-	{{ end }}
+
     </ul>
 
 </aside>

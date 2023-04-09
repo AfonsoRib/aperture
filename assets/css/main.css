@@ -45,25 +45,10 @@ button.prev, button.next {
 .slide-img {
     height: 90%;
     width: 100%;
-    /* background-repeat: no-repeat; */
-    /* background-size: contain; */
-    /* background-position: center; */
     object-fit: contain;
     vertical-align: middle;
     padding: 2em 0em;
 }
-
-/* .caption { */
-/*    transform: translateY(-100%); */
-/*    top: 100%; */
-/*    position: relative; */
-/*    text-align: center; */
-/*    padding: 1em; */
-/*    background-color: rgba(0,0,0,0.8); */
-/*    color: white; */
-/*    width: 50%; */
-/*    margin: auto; */
-/* } */
 
 /* header */
 
@@ -107,7 +92,8 @@ aside#header a {
 }
 
 aside#header a:hover {
-    text-decoration: underline;
+    //text-decoration: underline;
+    color: #555;
 }
 
 /* main */
@@ -146,23 +132,13 @@ main#content article a:hover {
 
 main#content article{
     padding: 0 2em;
+    text-align: justify;
 }
 
-main#content ul#posts {
-    list-style-type: none;
-    margin-top: 0;
-    padding: 0;
-    font-size: 1.15em;
+main#content article h1#title{
+    font-size: 3em;
 }
 
-main#content ul#posts li {
-    margin: 5px 0;
-    padding: 0;
-}
-
-main#content ul#posts li a {
-    text-decoration: none;
-}
 
 main#content ul#posts small {
     font-size: 0.8em;
@@ -170,4 +146,63 @@ main#content ul#posts small {
     margin-left: 10px;
 }
 
+main#content div#posts div.post figure.post-image {
+  margin: 0;
+}
 
+main#content div#posts div.post figure.post-image img {
+  width: 100%;
+  vertical-align: top;
+  object-fit: cover;
+  height: 325px;
+}
+
+main#content div#posts div.post {
+  cursor: pointer;
+  position: relative;
+  display: block;
+}
+
+main#content div#posts{
+    padding: 2em;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(100px, 325px));
+    justify-content: center;
+    grid-gap: 28px;
+}
+
+main#content div div.post-header{
+    text-align: center;
+    color: #000;
+    text-decoration: none;
+}
+main#content div div.post-header:hover{
+    color: #555;
+    text-decoration: none;
+}
+
+main#content  div.post a{
+    text-decoration: none;
+}
+
+
+main#content #article-header{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+main#content div#header-title{
+    text-align: center;
+    margin: 25%;
+}
+
+main#content div#header-img-div{
+
+}
+
+main#content div#header-img-div img#header-img{
+    width: 100%;
+    object-fit: contain;
+}

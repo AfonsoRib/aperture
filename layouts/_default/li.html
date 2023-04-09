@@ -1,7 +1,20 @@
-<li>
-  <a href="{{ .Permalink }}">
-    {{ first 50 .Title }}
-    {{if gt (len .Title) 50}}...{{end}}
-      <small><time>{{ .Date.Format "Jan 2, 2006" }}</time></small>
-  </a>
-</li>
+<div class="post">
+    <a href="{{ .Permalink }}">
+	<figure class="post-image">
+	    {{ $img := .Page.Resources.GetMatch "index.jpg" }}
+	    {{ if ne $img nil }}
+	    <img src="{{ $img.RelPermalink }}" >
+	    {{ else }}
+	    <img src="{{ (resources.Get "NoImage.jpg").RelPermalink}}">
+	    {{end}}
+	</figure>
+	<div class="post-header">
+	    <h2>
+		{{ first 47 .Title }}
+		{{if gt (len .Title) 47}}...{{end}}
+	    </h2>
+	    <p>{{ .Summary }}</p>
+	    <small><time>{{ .Date.Format "Jan 2, 2006" }}</time></small>
+	</div>
+    </a>
+</div>

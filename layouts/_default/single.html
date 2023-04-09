@@ -1,17 +1,28 @@
 {{ define "main" }}
-<article>
-    <header id="post-header">
-        <h1>{{ .Title }}</h1>
+<header id="article-header">
+    <div id="header-title">
+        <h1 id="title">{{ .Title }}</h1>
 	<div>
-            {{- if isset .Params "date" -}}
-            {{ if eq .Lastmod .Date }}
+	    {{- if isset .Params "date" -}}
+	    {{ if eq .Lastmod .Date }}
 	    <time>{{ .Date.Format "January 2, 2006" }}</time>
 	    {{ else }}
 	    Updated <time>{{ .Lastmod.Format "January 2, 2006" }}</time>
 	    {{ end }}
 	    {{- end -}}
 	</div>
-    </header>
+    </div>
+    <div id="header-img-div" class="header-container">
+	{{ $img := .Page.Resources.GetMatch "index.jpg" }}
+	{{ if ne $img nil }}
+	<img id="header-img" src="{{ $img.RelPermalink }}" >
+	{{ else }}
+	<img src="{{ (resources.Get "NoImage.jpg").RelPermalink}}">
+	{{end}}
+    </div>
+    
+</header>
+<article>
     {{- .Content -}}
 </article>
 {{ end }}
